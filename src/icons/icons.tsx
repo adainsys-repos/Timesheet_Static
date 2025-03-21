@@ -1,5 +1,32 @@
-import { HomeIcon } from 'lucide-react';
+import {
+    Clock,
+    Calendar,
+    Users,
+    Settings,
+    FileText,
+    Briefcase,
+    Building,
+    FolderTree,
+    UserPlus,
+    LayoutDashboard,
+    LogOut,
+    LucideProps,
+    Check,
+    X,
+} from 'lucide-react';
 
 export const Icons = {
-    home: HomeIcon,
+    clock: (props: LucideProps) => <Clock className="size-5 stroke-[1.5]" {...props} />,
+    calendar: (props: LucideProps) => <Calendar className="size-5 stroke-[1.5]" {...props} />,
+    users: (props: LucideProps) => <Users className="size-5 stroke-[1.5]" {...props} />,
+    settings: (props: LucideProps) => <Settings className="size-5 stroke-[1.5]" {...props} />,
+    fileText: (props: LucideProps) => <FileText className="size-5 stroke-[1.5]" {...props} />,
+    briefcase: (props: LucideProps) => <Briefcase className="size-5 stroke-[1.5]" {...props} />,
+    building: (props: LucideProps) => <Building className="size-5 stroke-[1.5]" {...props} />,
+    folderTree: (props: LucideProps) => <FolderTree className="size-5 stroke-[1.5]" {...props} />,
+    userPlus: (props: LucideProps) => <UserPlus className="size-5 stroke-[1.5]" {...props} />,
+    dashboard: (props: LucideProps) => <LayoutDashboard className="size-5 stroke-[1.5]" {...props} />,
+    logOut: (props: LucideProps) => <LogOut className="size-5 stroke-[1.5]" {...props} />,
+    check: (props: LucideProps) => <Check className="size-5 stroke-[1.5]" {...props} />,
+    cancel: (props: LucideProps) => <X className="size-5 stroke-[1.5]" {...props} />,
 };
