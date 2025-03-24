@@ -4,6 +4,8 @@ import SearchBar from '@/components/common/search';
 import ToolTip from '@/components/common/tool-tip';
 import DataTable from '@/components/table/DataTable';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Icons } from '@/icons/icons';
 import { ProjectAttributesTypes } from '@/types/projects/projec-attributes/project-attributes';
@@ -84,7 +86,38 @@ export default function ProjectAttributes() {
             cell: ({ row }) => (
                 <span className="flex items-center gap-2 text-primaryColor">
                     <ToolTip content="Edit">
-                        <Icons.edit className="size-4" />
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant="icon">
+                                    <Icons.edit className="size-4 text-primaryColor" />
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Edit Attribute</DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2">
+                                        <Input placeholder="Attribute Name" />
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <Select>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder={'Select Attribute'} />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="text">Text</SelectItem>
+                                                <SelectItem value="number">Number</SelectItem>
+                                                <SelectItem value="boolean">Boolean</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                </DialogDescription>
+                                <DialogFooter>
+                                    <Button type="submit">Add</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>{' '}
                     </ToolTip>
                 </span>
             ),
@@ -102,14 +135,43 @@ export default function ProjectAttributes() {
             <RouteHeader text="Project Attributes" />
             <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-2 justify-end">
-                    <Button>
-                        <Icons.plus className="text-white" /> Add Attribute
-                    </Button>
+                    <Dialog>
+                        <DialogTrigger>
+                            <Button>
+                                <Icons.plus className="text-white" /> Add Attribute
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Add Parameter</DialogTitle>
+                            </DialogHeader>
+                            <DialogDescription className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-2">
+                                    <Input placeholder="Attribute Name" />
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <Select>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder={'Select Attribute'} />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="text">Text</SelectItem>
+                                            <SelectItem value="number">Number</SelectItem>
+                                            <SelectItem value="boolean">Boolean</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            </DialogDescription>
+                            <DialogFooter>
+                                <Button type="submit">Add</Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
                     <SearchBar placeholder="Search attribute" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
-                    <DataPagination maxPages={10} total={10} />
+                    {/* <DataPagination maxPages={10} total={10} /> */}
                 </div>
             </div>
         </div>
