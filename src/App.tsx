@@ -15,12 +15,14 @@ import ProjectExtension from './routes/project-extension/page';
 import Calendar from './routes/calendar/page';
 import PMMapping from './routes/pm-mapping/page';
 import Projects from './routes/(manage)/projects/page';
+import LoginPage from './routes/sign-in/page';
 
 function App() {
     return (
         <>
             <Routes>
                 {/* <Route path="/sign-in" element={<SignInPage />} /> */}
+                <Route path="/sign-in" element={<LoginPage />} />
 
                 <Route element={<Protected />}>
                     <Route element={<RootLayoutWrapper />}>
