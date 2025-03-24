@@ -58,30 +58,30 @@ export default function TimesheetParameters() {
                 </div>
             ),
             cell: ({ row }) => (
-                <span className="flex items-center gap-2 text-primaryColor">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button variant="icon">
-                                <ToolTip content="Edit">
-                                    <Icons.edit className="size-4" />
-                                </ToolTip>
-                            </Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>Edit Parameter</DialogTitle>
-                            </DialogHeader>
-                            <DialogDescription>
-                                <div className="flex flex-col gap-2">
-                                    <Input placeholder="Parameter Name" />
-                                </div>
-                            </DialogDescription>
-                            <DialogFooter>
-                                <Button type="submit">Update</Button>
-                            </DialogFooter>
-                        </DialogContent>
-                    </Dialog>
-                </span>
+                <>
+                    <ToolTip content="Edit">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant="icon">
+                                    <Icons.edit className="size-4 text-primaryColor" />
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Edit Parameter</DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription>
+                                    <div className="flex flex-col gap-2">
+                                        <Input placeholder="Parameter Name" />
+                                    </div>
+                                </DialogDescription>
+                                <DialogFooter>
+                                    <Button type="submit">Update</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+                    </ToolTip>
+                </>
             ),
         },
     ];
@@ -121,7 +121,7 @@ export default function TimesheetParameters() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
-                    {/* <DataPagination maxPages={10} total={10} /> */}
+                    <DataPagination maxPages={10} total={10} />
                 </div>
             </div>
         </div>

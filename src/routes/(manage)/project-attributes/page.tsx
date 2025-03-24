@@ -109,7 +109,7 @@ export default function ProjectAttributes() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
-                    {/* <DataPagination maxPages={10} total={10} /> */}
+                    <DataPagination maxPages={10} total={10} />
                 </div>
             </div>
         </div>

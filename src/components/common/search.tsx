@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Input } from '../ui/input';
@@ -16,7 +16,7 @@ const SearchBar: React.FC<SearchProps> = ({ placeholder = 'Search...', className
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchTerm, setSearchTerm] = useState(searchParams.get(paramName) || '');
 
-    const debouncedSearch = useCallback(
+    const handleSearch = useCallback(
         (value: string) => {
             const newSearchParams = new URLSearchParams(searchParams);
 
@@ -35,18 +35,15 @@ const SearchBar: React.FC<SearchProps> = ({ placeholder = 'Search...', className
         [searchParams, setSearchParams, paramName, onSearch]
     );
 
-    useEffect(() => {
-        const handler = setTimeout(() => {
-            debouncedSearch(searchTerm);
-        }, debounceTime);
-
-        return () => {
-            clearTimeout(handler);
-        };
-    }, [searchTerm, debouncedSearch, debounceTime]);
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
+        const value = e.target.value;
+        setSearchTerm(value);
+        
+        if (debounceTime <= 0) {
+            handleSearch(value);
+        } else {
+            handleSearch(value);
+        }
     };
 
     return (
