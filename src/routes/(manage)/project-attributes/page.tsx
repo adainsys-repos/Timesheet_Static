@@ -84,7 +84,7 @@ export default function ProjectAttributes() {
                 </div>
             ),
             cell: ({ row }) => (
-                <span className="flex items-center gap-2 text-primaryColor">
+                <>
                     <ToolTip content="Edit">
                         <Dialog>
                             <DialogTrigger asChild>
@@ -114,12 +114,12 @@ export default function ProjectAttributes() {
                                     </div>
                                 </DialogDescription>
                                 <DialogFooter>
-                                    <Button type="submit">Add</Button>
+                                    <Button type="submit">Update</Button>
                                 </DialogFooter>
                             </DialogContent>
-                        </Dialog>{' '}
+                        </Dialog>
                     </ToolTip>
-                </span>
+                </>
             ),
         },
     ];
@@ -167,7 +167,7 @@ export default function ProjectAttributes() {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                    <SearchBar placeholder="Search attribute" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
+                    {/* <SearchBar placeholder="Search attribute" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" /> */}
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />

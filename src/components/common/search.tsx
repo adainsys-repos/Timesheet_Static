@@ -38,7 +38,7 @@ const SearchBar: React.FC<SearchProps> = ({ placeholder = 'Search...', className
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearchTerm(value);
-        
+
         if (debounceTime <= 0) {
             handleSearch(value);
         } else {
