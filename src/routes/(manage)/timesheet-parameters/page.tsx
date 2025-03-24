@@ -4,6 +4,8 @@ import SearchBar from '@/components/common/search';
 import ToolTip from '@/components/common/tool-tip';
 import DataTable from '@/components/table/DataTable';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 import { Icons } from '@/icons/icons';
 import { TimesheetParametersTypes } from '@/types/timesheet-parameters/timesheet-parameters';
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
@@ -57,9 +59,28 @@ export default function TimesheetParameters() {
             ),
             cell: ({ row }) => (
                 <span className="flex items-center gap-2 text-primaryColor">
-                    <ToolTip content="Edit">
-                        <Icons.edit className="size-4" />
-                    </ToolTip>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button variant="icon">
+                                <ToolTip content="Edit">
+                                    <Icons.edit className="size-4" />
+                                </ToolTip>
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Edit Parameter</DialogTitle>
+                            </DialogHeader>
+                            <DialogDescription>
+                                <div className="flex flex-col gap-2">
+                                    <Input placeholder="Parameter Name" />
+                                </div>
+                            </DialogDescription>
+                            <DialogFooter>
+                                <Button type="submit">Update</Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
                 </span>
             ),
         },
@@ -76,14 +97,31 @@ export default function TimesheetParameters() {
             <RouteHeader text="Timesheet Parameters" />
             <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-2 justify-end">
-                    <Button>
-                        <Icons.plus className="text-white" /> Add Parameter
-                    </Button>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button>
+                                <Icons.plus className="text-white" /> Add Parameter
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Add Parameter</DialogTitle>
+                            </DialogHeader>
+                            <DialogDescription>
+                                <div className="flex flex-col gap-2">
+                                    <Input placeholder="Parameter Name" />
+                                </div>
+                            </DialogDescription>
+                            <DialogFooter>
+                                <Button type="submit">Add</Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
                     <SearchBar placeholder="Search customer" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
-                    <DataPagination maxPages={10} total={10} />
+                    {/* <DataPagination maxPages={10} total={10} /> */}
                 </div>
             </div>
         </div>
