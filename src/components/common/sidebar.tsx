@@ -120,27 +120,27 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                                                         <div className="flex items-center gap-2">
                                                             {React.createElement(Icons[item.icon], {
                                                                 className:
-                                                                    'size-5 stroke-[1.5] text-primary group-hover/collapsible:text-primary transition-colors duration-200',
+                                                                    'size-5 stroke-[1.5] text-primaryColor group-hover/collapsible:text-primaryColor transition-colors duration-200',
                                                             })}
-                                                            <span className="text-sm font-medium ml-3 text-primary/80 group-hover/collapsible:text-primary transition-colors duration-200">
+                                                            <span className="text-sm font-medium ml-3 text-primaryColor/80 group-hover/collapsible:text-primaryColor transition-colors duration-200">
                                                                 {item.label}
                                                             </span>
                                                         </div>
-                                                        <ChevronDown className="ml-auto size-5 stroke-[1.5] text-primary group-hover/collapsible:text-primary transition-all duration-200 group-data-[state=open]/collapsible:rotate-180" />
+                                                        <ChevronDown className="ml-auto size-5 stroke-[1.5] text-primaryColor group-hover/collapsible:text-primaryColor transition-all duration-200 group-data-[state=open]/collapsible:rotate-180" />
                                                     </SidebarMenuButton>
                                                 </CollapsibleTrigger>
                                             ) : (
                                                 <SidebarMenuButton asChild className="w-full px-2 py-2.5 rounded-lg">
                                                     <Link
                                                         to={item.path || '/'}
-                                                        className="text-primary/80 hover:text-primary transition-colors duration-200 flex items-center justify-between"
+                                                        className="text-primaryColor/80 hover:text-primaryColor transition-colors duration-200 flex items-center justify-between"
                                                     >
                                                         <div className="flex items-center gap-2">
                                                             {React.createElement(Icons[item.icon], {
                                                                 className:
-                                                                    'size-5 stroke-[1.5] text-primary group-hover/collapsible:text-primary transition-colors duration-200',
+                                                                    'size-5 stroke-[1.5] text-primaryColor group-hover/collapsible:text-primaryColor transition-colors duration-200',
                                                             })}
-                                                            <span className="text-sm font-medium ml-3 text-primary/80 group-hover/collapsible:text-primary transition-colors duration-200">
+                                                            <span className="text-sm font-medium ml-3 text-primaryColor/80 group-hover/collapsible:text-primaryColor transition-colors duration-200">
                                                                 {item.label}
                                                             </span>
                                                         </div>
@@ -149,7 +149,7 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                                             )}
                                             {item.subItems && item.subItems.length > 0 && (
                                                 <CollapsibleContent className="mt-1">
-                                                    <SidebarMenuSub className="pl-2.5 space-y-1 text-primary/80">
+                                                    <SidebarMenuSub className="pl-2.5 space-y-1 text-primaryColor/80">
                                                         {item.subItems.map((subItem, subIndex) => (
                                                             <SidebarMenuSubItem
                                                                 key={subItem.path || `subitem-${index}-${subIndex}`}
@@ -158,13 +158,13 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                                                                 <SidebarMenuSubButton asChild className="w-full px-1.5 py-2 rounded-md">
                                                                     <Link
                                                                         to={subItem.path || '/'}
-                                                                        className="text-primary/80 hover:text-primary transition-colors duration-200 flex items-center"
+                                                                        className="text-primaryColor/80 hover:text-primaryColor transition-colors duration-200 flex items-center"
                                                                     >
                                                                         {React.createElement(Icons[subItem.icon], {
                                                                             className:
-                                                                                'size-5 stroke-[1.5] text-primary/80 group-hover:text-primary transition-colors duration-200',
+                                                                                'size-5 stroke-[1.5] text-primaryColor/80 group-hover:text-primaryColor transition-colors duration-200',
                                                                         })}
-                                                                        <span className="text-sm ml-1 text-primary/80 group-hover/collapsible:text-primary transition-colors duration-200">
+                                                                        <span className="text-sm ml-1 text-primaryColor/80 group-hover/collapsible:text-primaryColor transition-colors duration-200">
                                                                             {subItem.label}
                                                                         </span>
                                                                     </Link>

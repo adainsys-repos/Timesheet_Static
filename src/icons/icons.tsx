@@ -13,6 +13,9 @@ import {
     LucideProps,
     Check,
     X,
+    IdCard,
+    CalendarPlus2,
+    Search,
 } from 'lucide-react';
 
 export const Icons = {
@@ -29,4 +32,7 @@ export const Icons = {
     logOut: (props: LucideProps) => <LogOut className="size-5 stroke-[1.5]" {...props} />,
     check: (props: LucideProps) => <Check className="size-5 stroke-[1.5]" {...props} />,
     cancel: (props: LucideProps) => <X className="size-5 stroke-[1.5]" {...props} />,
+    id: (props: LucideProps) => <IdCard className="size-5 stroke-[1.5]" {...props} />,
+    calendarPlus: (props: LucideProps) => <CalendarPlus2 className="size-5 stroke-[1.5]" {...props} />,
+    search: (props: LucideProps) => <Search className="size-5 stroke-[1.5]" {...props} />,
 };
