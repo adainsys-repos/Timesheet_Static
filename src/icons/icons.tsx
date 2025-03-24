@@ -16,6 +16,9 @@ import {
     IdCard,
     CalendarPlus2,
     Search,
+    SlidersHorizontal,
+    Pencil,
+    Plus,
 } from 'lucide-react';
 
 export const Icons = {
@@ -35,4 +38,7 @@ export const Icons = {
     id: (props: LucideProps) => <IdCard className="size-5 stroke-[1.5]" {...props} />,
     calendarPlus: (props: LucideProps) => <CalendarPlus2 className="size-5 stroke-[1.5]" {...props} />,
     search: (props: LucideProps) => <Search className="size-5 stroke-[1.5]" {...props} />,
+    action: (props: LucideProps) => <SlidersHorizontal className="size-5 stroke-[1.5]" {...props} />,
+    edit: (props: LucideProps) => <Pencil className="size-5 stroke-[1.5]" {...props} />,
+    plus: (props: LucideProps) => <Plus className="size-5 stroke-[1.5]" {...props} />,
 };
