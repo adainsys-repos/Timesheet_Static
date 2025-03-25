@@ -19,6 +19,8 @@ import {
     SlidersHorizontal,
     Pencil,
     Plus,
+    Loader2,
+    Trash,
 } from 'lucide-react';
 
 export const Icons = {
@@ -41,4 +43,6 @@ export const Icons = {
     action: (props: LucideProps) => <SlidersHorizontal className="size-5 stroke-[1.5]" {...props} />,
     edit: (props: LucideProps) => <Pencil className="size-5 stroke-[1.5]" {...props} />,
     plus: (props: LucideProps) => <Plus className="size-5 stroke-[1.5]" {...props} />,
+    spinner: (props: LucideProps) => <Loader2 className="size-5 stroke-[1.5]" {...props} />,
+    trash: (props: LucideProps) => <Trash className="size-5 stroke-[1.5]" {...props} />,
 };
