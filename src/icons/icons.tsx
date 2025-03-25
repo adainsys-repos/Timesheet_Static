@@ -21,6 +21,8 @@ import {
     Plus,
     Loader2,
     Trash,
+    Code,
+    CalendarX,
 } from 'lucide-react';
 
 export const Icons = {
@@ -45,4 +47,6 @@ export const Icons = {
     plus: (props: LucideProps) => <Plus className="size-5 stroke-[1.5]" {...props} />,
     spinner: (props: LucideProps) => <Loader2 className="size-5 stroke-[1.5]" {...props} />,
     trash: (props: LucideProps) => <Trash className="size-5 stroke-[1.5]" {...props} />,
+    code: (props: LucideProps) => <Code className="size-5 stroke-[1.5]" {...props} />,
+    calendarX: (props: LucideProps) => <CalendarX className="size-5 stroke-[1.5]" {...props} />,
 };

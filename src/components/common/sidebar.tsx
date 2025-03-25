@@ -104,7 +104,7 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                     <img src="/logo.png" alt="Logo" className="max-h-8" />
                 </SidebarHeader>
                 <Separator />
-                <SidebarContent className="flex-1 overflow-y-auto px-3 max-h-[65vh]">
+                <SidebarContent className="flex-1 overflow-y-auto px-3">
                     <SidebarGroup>
                         <SidebarGroupContent>
                             <SidebarMenu>
@@ -192,7 +192,7 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                     </div>
                 </SidebarFooter>
             </Sidebar>
-            <div className="flex-1 overflow-hidden p-4">{children}</div>
+            <div className="flex-1 overflow-y-auto p-4">{children}</div>
         </SidebarProvider>
     );
 }

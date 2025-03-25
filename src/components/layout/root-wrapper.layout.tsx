@@ -5,7 +5,7 @@ const RootLayoutWrapper = () => {
     return (
         <div className="flex h-screen">
             <AppSidebar>
-                <main className="flex-1 overflow-auto">
+                <main className="flex-1 overflow-y-auto">
                     <Outlet />
                 </main>
             </AppSidebar>
