@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Icons } from '@/icons/icons';
 import Pagination from '@/components/common/pagination';
 
-export default function AssignProjects() {
+export default function AssignedProjects({ type }: { type: 'teams' | 'employees' }) {
     const assignedProjects: Project[] = [
         {
             projectCode: 'EMP001',
@@ -93,7 +93,7 @@ export default function AssignProjects() {
             cell: ({ row }) => (
                 <div className="flex items-center gap-2">
                     <Button variant="icon">
-                        <Icons.plus className="size-4 text-primaryColor" />
+                        <Icons.trash className="size-4 text-red-500" />
                     </Button>
                 </div>
             ),

@@ -6,19 +6,19 @@ import { Button } from '@/components/ui/button';
 import { Icons } from '@/icons/icons';
 import Pagination from '@/components/common/pagination';
 
-export default function AssignedProjectGroups() {
+export default function AssignProjectGroup({ type }: { type: 'teams' | 'employees' }) {
     const assignedProjects: ProjectGroup[] = [
         {
             projectId: '1',
-            projectName: 'John Doe',
+            projectName: 'Project 1',
         },
         {
             projectId: '2',
-            projectName: 'Jane Smith',
+            projectName: 'Project 2',
         },
         {
             projectId: '3',
-            projectName: 'Robert Johnson',
+            projectName: 'Project 3',
         },
     ];
 
@@ -43,6 +43,7 @@ export default function AssignedProjectGroups() {
             ),
             cell: ({ row }) => <span>{row.original.projectName}</span>,
         },
+
         {
             accessorKey: 'action',
             header: () => (
@@ -54,7 +55,7 @@ export default function AssignedProjectGroups() {
             cell: ({ row }) => (
                 <div className="flex items-center gap-2">
                     <Button variant="icon">
-                        <Icons.trash className="size-4 text-red-500" />
+                        <Icons.plus className="size-4 text-primaryColor" />
                     </Button>
                 </div>
             ),

@@ -23,6 +23,11 @@ import {
     Trash,
     Code,
     CalendarX,
+    LogIn,
+    SquareArrowRight,
+    Trash2,
+    CheckSquare,
+    Vote,
 } from 'lucide-react';
 
 export const Icons = {
@@ -49,4 +54,9 @@ export const Icons = {
     trash: (props: LucideProps) => <Trash className="size-5 stroke-[1.5]" {...props} />,
     code: (props: LucideProps) => <Code className="size-5 stroke-[1.5]" {...props} />,
     calendarX: (props: LucideProps) => <CalendarX className="size-5 stroke-[1.5]" {...props} />,
+    login: (props: LucideProps) => <LogIn className="size-5 stroke-[1.5]" {...props} />,
+    squareArrowRight: (props: LucideProps) => <SquareArrowRight className="size-5 stroke-[1.5]" {...props} />,
+    delete: (props: LucideProps) => <Trash2 className="size-5 stroke-[1.5]" {...props} />,
+    checkSquare: (props: LucideProps) => <CheckSquare className="size-5 stroke-[1.5]" {...props} />,
+    vote: (props: LucideProps) => <Vote className="size-5 stroke-[1.5]" {...props} />,
 };

@@ -15,7 +15,10 @@ import ProjectExtension from './routes/project-extension/page';
 import Calendar from './routes/calendar/page';
 import PMMapping from './routes/pm-mapping/page';
 import Projects from './routes/(manage)/projects/page';
+import ProjectTabs from './components/projects/project-tabs';
 import LoginPage from './routes/sign-in/page';
+import TeamAllotment from './routes/(allotment)/team-allotment/page';
+import EmployeeAllotment from './routes/(allotment)/employee-allotment/page';
 
 function App() {
     return (
@@ -32,6 +35,10 @@ function App() {
                         <Route path="/calendar" element={<Calendar />} />
                         <Route path="/pm-mapping" element={<PMMapping />} />
 
+                        {/* Allotment */}
+                        <Route path="/team-allotment" element={<TeamAllotment />} />
+                        <Route path="/employee-allotment" element={<EmployeeAllotment />} />
+
                         {/* Manage */}
                         <Route path="/project-attributes" element={<ProjectAttributes />} />
                         <Route path="/timesheet-parameters" element={<TimesheetParameters />} />
@@ -40,6 +47,8 @@ function App() {
                         <Route path="/teams" element={<Teams />} />
                         <Route path="/team-project-mapping" element={<TeamProjectMapping />} />
                         <Route path="/projects" element={<Projects />} />
+                        {/* {Project Tabs} */}
+                        <Route path="/projects/:id" element={<ProjectTabs />} />
                     </Route>
                 </Route>
             </Routes>

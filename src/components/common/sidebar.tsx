@@ -54,6 +54,23 @@ const navItems: NavItem[] = [
         path: '/pm-mapping',
     },
     {
+        label: 'Allotment',
+        icon: 'vote',
+        path: '/allotment',
+        subItems: [
+            {
+                label: 'Team Allotment',
+                icon: 'userPlus',
+                path: '/team-allotment',
+            },
+            {
+                label: 'Employee Allotment',
+                icon: 'userPlus',
+                path: '/employee-allotment',
+            },
+        ],
+    },
+    {
         label: 'Manage',
         icon: 'settings',
         subItems: [

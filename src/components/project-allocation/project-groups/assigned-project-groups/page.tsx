@@ -1,46 +1,37 @@
 import DataTable from '@/components/table/DataTable';
 import { ColumnDef, useReactTable } from '@tanstack/react-table';
 import { getCoreRowModel } from '@tanstack/react-table';
-import { Project } from '@/types/projects/projects';
+import { ProjectGroup } from '@/types/projects/projects';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/icons/icons';
 import Pagination from '@/components/common/pagination';
 
-export default function AssignedProjects() {
-    const assignedProjects: Project[] = [
+export default function AssignedProjectGroups({ type }: { type: 'teams' | 'employees' }) {
+    const assignedProjects: ProjectGroup[] = [
         {
-            projectCode: 'EMP001',
+            projectId: '1',
             projectName: 'John Doe',
-            startDate: '2021-01-01',
-            endDate: '2021-01-01',
-            operatingUnit: 'Unit 03 Boilaram - SAI Life Sciences Ltd.',
         },
         {
-            projectCode: 'EMP002',
+            projectId: '2',
             projectName: 'Jane Smith',
-            startDate: '2021-01-01',
-            endDate: '2021-01-01',
-            operatingUnit: 'Unit 03 Boilaram - SAI Life Sciences Ltd.',
         },
         {
-            projectCode: 'EMP003',
+            projectId: '3',
             projectName: 'Robert Johnson',
-            startDate: '2021-01-01',
-            endDate: '2021-01-01',
-            operatingUnit: 'Unit 03 Boilaram - SAI Life Sciences Ltd.',
         },
     ];
 
-    const columns: ColumnDef<Project>[] = [
+    const columns: ColumnDef<ProjectGroup>[] = [
         {
-            accessorKey: 'projectCode',
+            accessorKey: 'projectId',
             header: () => (
                 <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
                     <Icons.code className="size-4" />
                     <span>Project Code</span>
                 </div>
             ),
-            cell: ({ row }) => <span>{row.original.projectCode}</span>,
+            cell: ({ row }) => <span>{row.original.projectId}</span>,
         },
         {
             accessorKey: 'projectName',
@@ -51,36 +42,6 @@ export default function AssignedProjects() {
                 </div>
             ),
             cell: ({ row }) => <span>{row.original.projectName}</span>,
-        },
-        {
-            accessorKey: 'startDate',
-            header: () => (
-                <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
-                    <Icons.calendar className="size-4" />
-                    <span>Start Date</span>
-                </div>
-            ),
-            cell: ({ row }) => <span>{row.original.startDate}</span>,
-        },
-        {
-            accessorKey: 'endDate',
-            header: () => (
-                <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
-                    <Icons.calendarX className="size-4" />
-                    <span>End Date</span>
-                </div>
-            ),
-            cell: ({ row }) => <span>{row.original.endDate}</span>,
-        },
-        {
-            accessorKey: 'operatingUnit',
-            header: () => (
-                <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
-                    <Icons.building className="size-4" />
-                    <span>Operating Unit</span>
-                </div>
-            ),
-            cell: ({ row }) => <span>{row.original.operatingUnit}</span>,
         },
         {
             accessorKey: 'action',

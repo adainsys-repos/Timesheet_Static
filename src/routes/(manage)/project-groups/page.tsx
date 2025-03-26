@@ -10,8 +10,8 @@ import { Input } from '@/components/ui/input';
 import SearchBar from '@/components/common/search';
 import ToolTip from '@/components/common/tool-tip';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import AssignProjects from '@/components/team-project-mapping/projects/assign-projects/page';
-import AssignedProjects from '@/components/team-project-mapping/projects/assigned-projects/page';
+import AssignProjects from '@/components/project-allocation/projects/assign-projects/page';
+import AssignedProjects from '@/components/project-allocation/projects/assigned-projects/page';
 
 export default function ProjectGroups() {
     const dummyData: ProjectGroupsTypes[] = [
