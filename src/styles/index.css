@@ -12,7 +12,7 @@ body,
 
 @layer base {
     :root {
-        --primaryColor: 198 85% 46%;
+        --primaryColor: 270 50% 40%;
         --secondaryColor: 245 47% 21%;
         --accentColor: 0 0% 62%;
 
