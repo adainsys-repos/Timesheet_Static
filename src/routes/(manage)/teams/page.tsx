@@ -70,11 +70,34 @@ export default function Teams() {
             cell: ({ row }) => (
                 <>
                     <ToolTip content="Add Employee">
-                        <Link to="/add-employee-to-team">
+                        <Link to="/teams/add-employee-to-team">
                             <Button variant="icon">
-                                <Icons.edit className="size-4 text-primaryColor" />
+                                <Icons.plus className="size-4 text-primaryColor" />
                             </Button>
                         </Link>
+                    </ToolTip>
+                    <ToolTip content="Edit Team">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant="icon">
+                                    <Icons.edit className="size-3.5 text-primaryColor" />
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Edit Team</DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription>
+                                    <div className="flex flex-col gap-2">
+                                        <Input placeholder="Team Name" defaultValue={row.original.name} />
+                                        <Input placeholder="SBU" defaultValue={row.original.sbu} />
+                                    </div>
+                                </DialogDescription>
+                                <DialogFooter>
+                                    <Button type="submit">Save Changes</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
                     </ToolTip>
                     <ToolTip content="Delete Employee">
                         <Button variant="icon">

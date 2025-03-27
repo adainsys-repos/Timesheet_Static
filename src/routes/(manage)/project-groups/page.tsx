@@ -9,11 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import SearchBar from '@/components/common/search';
 import ToolTip from '@/components/common/tool-tip';
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import AssignProjects from '@/components/project-allocation/projects/assign-projects/page';
-import AssignedProjects from '@/components/project-allocation/projects/assigned-projects/page';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import ProjectAllocation from '@/components/project-allocation/project-allocation';
-
+import { Link } from 'react-router-dom';
 export default function ProjectGroups() {
     const dummyData: ProjectGroupsTypes[] = [
         { id: '1', projectGroupName: 'Blarc', projectGroupId: '8888', createdAt: '16/05/2021' },
@@ -60,30 +58,42 @@ export default function ProjectGroups() {
             ),
             cell: ({ row }) => (
                 <>
-                    <Sheet>
-                        <ToolTip content="Edit Groups">
-                            <SheetTrigger asChild>
+                    <ToolTip content="View Project Groups">
+                        <Link to={`/project-groups/${row.original.id}`}>
+                            <Button variant="icon">
+                                <Icons.eye className="size-4 text-primaryColor" />
+                            </Button>
+                        </Link>
+                    </ToolTip>
+
+                    <ToolTip content="Edit">
+                        <Dialog>
+                            <DialogTrigger asChild>
                                 <Button variant="icon">
                                     <Icons.edit className="size-4 text-primaryColor" />
                                 </Button>
-                            </SheetTrigger>
-                        </ToolTip>
-
-                        <ToolTip content="Delete">
-                            <Button variant="icon">
-                                <Icons.trash className="size-4 text-red-500" />
-                            </Button>
-                        </ToolTip>
-
-                        <SheetContent className="!max-w-[75vw] overflow-y-auto mb-10">
-                            <SheetHeader>
-                                <SheetTitle>Project Groups Name</SheetTitle>
-                            </SheetHeader>
-                            <div className="w-full flex flex-col gap-2 py-4">
-                                <ProjectAllocation type="teams" />
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Edit Project Group</DialogTitle>
+                                </DialogHeader>
+                                <DialogDescription className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2">
+                                        <Input placeholder="Project Group Name" defaultValue={row.original.projectGroupName} />
+                                        <Input placeholder="Project Group ID" defaultValue={row.original.projectGroupId} />
+                                    </div>
+                                </DialogDescription>
+                                <DialogFooter>
+                                    <Button type="submit">Save Changes</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+                    </ToolTip>
+                    <ToolTip content="Delete">
+                        <Button variant="icon">
+                            <Icons.trash className="size-4 text-red-500" />
+                        </Button>
+                    </ToolTip>
                 </>
             ),
         },

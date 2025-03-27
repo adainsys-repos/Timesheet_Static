@@ -13,12 +13,16 @@ export default function PMMapping() {
     const data: PmMappingTypes[] = [
         {
             id: '1',
+            employeeId: '1',
+            employeeName: 'John Doe',
             pmName: 'John Doe',
             projectCode: 'PROJ-001',
             creationDate: '2024-03-25',
         },
         {
             id: '2',
+            employeeId: '2',
+            employeeName: 'Jane Smith',
             pmName: 'Jane Smith',
             projectCode: 'PROJ-002',
             creationDate: '2024-03-20',
@@ -26,6 +30,8 @@ export default function PMMapping() {
 
         {
             id: '3',
+            employeeId: '3',
+            employeeName: 'Robert',
             pmName: 'Robert',
             projectCode: 'PROJ-003',
             creationDate: '2025-03-25',
@@ -34,11 +40,20 @@ export default function PMMapping() {
 
     const columns: ColumnDef<PmMappingTypes>[] = [
         {
-            accessorKey: 'pmName',
+            accessorKey: 'employeeId',
             header: () => (
                 <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
                     <Icons.users className="size-4" />
-                    Pm Name
+                    Employee ID
+                </div>
+            ),
+        },
+        {
+            accessorKey: 'employeeName',
+            header: () => (
+                <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
+                    <Icons.users className="size-4" />
+                    Employee Name
                 </div>
             ),
         },
@@ -52,13 +67,22 @@ export default function PMMapping() {
                 </div>
             ),
         },
+        {
+            accessorKey: 'pmName',
+            header: () => (
+                <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
+                    <Icons.users className="size-4" />
+                    Pm Name
+                </div>
+            ),
+        },
 
         {
             accessorKey: 'creationDate',
             header: () => (
                 <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
                     <Icons.calendarPlus className="size-4" />
-                    Creation Date
+                    Mapped Date
                 </div>
             ),
         },
@@ -91,8 +115,7 @@ export default function PMMapping() {
                             </DialogHeader>
                             <DialogDescription className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2">
-                                    <Input placeholder="Pm Id" />
-                                    <Input placeholder="Pm Name" />
+                                    <Input placeholder="Employee Code" />
                                     <Input placeholder="Project Code" />
                                 </div>
                             </DialogDescription>

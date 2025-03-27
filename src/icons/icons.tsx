@@ -28,6 +28,7 @@ import {
     Trash2,
     CheckSquare,
     Vote,
+    Eye,
 } from 'lucide-react';
 
 export const Icons = {
@@ -59,4 +60,5 @@ export const Icons = {
     delete: (props: LucideProps) => <Trash2 className="size-5 stroke-[1.5]" {...props} />,
     checkSquare: (props: LucideProps) => <CheckSquare className="size-5 stroke-[1.5]" {...props} />,
     vote: (props: LucideProps) => <Vote className="size-5 stroke-[1.5]" {...props} />,
+    eye: (props: LucideProps) => <Eye className="size-5 stroke-[1.5]" {...props} />,
 };

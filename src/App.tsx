@@ -20,6 +20,7 @@ import LoginPage from './routes/sign-in/page';
 import TeamAllotment from './routes/(allotment)/team-allotment/page';
 import EmployeeAllotment from './routes/(allotment)/employee-allotment/page';
 import AddEmployeeToTeam from './components/teams/add-employee-to-teams';
+import ProjectGroupById from './routes/(manage)/project-groups/[id]/page';
 
 function App() {
     return (
@@ -45,12 +46,15 @@ function App() {
                         <Route path="/timesheet-parameters" element={<TimesheetParameters />} />
                         <Route path="/customer" element={<Customer />} />
                         <Route path="/project-groups" element={<ProjectGroups />} />
+                        <Route path="/project-groups/:id" element={<ProjectGroupById />} />
+
                         <Route path="/teams" element={<Teams />} />
+                        <Route path="/teams/add-employee-to-team" element={<AddEmployeeToTeam />} />
+
                         <Route path="/team-project-mapping" element={<TeamProjectMapping />} />
                         <Route path="/projects" element={<Projects />} />
                         {/* {Project Tabs} */}
                         <Route path="/projects/:id" element={<ProjectTabs />} />
-                        <Route path="/add-employee-to-team" element={<AddEmployeeToTeam />} />
                     </Route>
                 </Route>
             </Routes>
