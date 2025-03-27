@@ -102,11 +102,10 @@ const Main = () => {
     });
 
     return (
-        <div className="h-screen w-full overflow-y-auto">
-            <div className="p-8 bg-gray-50 min-h-full">
-                {/* Project Details Card */}
+        <div className="h-screen w-full overflow-y-hidden bg-white">
+            <div className="p-4 min-h-full">
                 <div className="max-w-6xl mx-auto mb-8">
-                    <div className="grid grid-cols-2 gap-6 p-6 border rounded-xl bg-white shadow-lg">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 border rounded-xl bg-white shadow-lg">
                         {Object.entries(projectData).map(([key, value], index) => (
                             <div key={index} className="flex">
                                 <span className="font-semibold w-1/3 text-xs capitalize text-gray-600">{key.replace(/([A-Z])/g, ' $1')}:</span>
@@ -116,21 +115,17 @@ const Main = () => {
                     </div>
                 </div>
 
-                {/* Custom Attributes Table */}
-                <div className="max-w-6xl mx-auto mb-8">
+                <div className="max-w-6xl mx-auto mb-8 p-6 border rounded-xl bg-white shadow-lg">
                     <h5 className="text-lg font-semibold text-primaryColor mb-6">Custom Attributes</h5>
                     <DataTable columns={columns} table={table} isLoading={false} />
+                    <Button onClick={handleAddAttribute} className="mt-4 flex items-center gap-2 text-xs ">
+                        <Icons.plus />
+                        Add Attribute
+                    </Button>
                 </div>
 
-                {/* Buttons - Fixed position at the bottom with proper spacing */}
-                <div className="max-w-6xl mx-auto mt-8 mb-16">
-                    <div className="flex flex-col gap-4 w-fit">
-                        <Button onClick={handleAddAttribute} className="flex items-center gap-2">
-                            <Icons.plus />
-                            Add Attribute
-                        </Button>
-                        <Button>Save</Button>
-                    </div>
+                <div className="max-w-6xl mx-auto mt-8 mb-16 flex justify-end ">
+                    <Button className="text-sm">Save</Button>
                 </div>
             </div>
         </div>

@@ -8,8 +8,7 @@ import TimeSheetParameters from './time-sheet-parameters';
 const ProjectTabs = () => {
     return (
         <Tabs defaultValue="main" className="w-full pt-4">
-            {/* Align tabs to the left */}
-            <TabsList className="bg-transparent rounded-none flex items-end justify-start space-x-4">
+            <TabsList className="bg-transparent rounded-none flex items-end justify-start space-x-4 ">
                 <TabsTrigger
                     value="main"
                     className="!bg-transparent rounded-none border-b-2 border-transparent data-[state=active]:!border-b-2 data-[state=active]:!border-primaryColor data-[state=active]:text-primaryColor py-2"

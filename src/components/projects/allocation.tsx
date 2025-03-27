@@ -6,6 +6,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Switch } from '../ui/switch';
 import { Checkbox } from '../ui/checkbox';
+import DataPagination from '../common/pagination';
 
 interface EmployeeData {
     employeeId: string;
@@ -46,12 +47,9 @@ const EmployeeTable = () => {
         ]);
     };
 
-    // ✅ Handle Input Changes
     const handleInputChange = (index: number, field: keyof EmployeeData, value: string | boolean) => {
         setTableData((prevData) => prevData.map((row, i) => (i === index ? { ...row, [field]: value } : row)));
     };
-
-    // ✅ Table Columns
 
     const columns: ColumnDef<EmployeeData>[] = [
         {
@@ -153,17 +151,18 @@ const EmployeeTable = () => {
     });
 
     return (
-        <div className="space-y-4 bg-gray-50 p-8 min-h-screen">
-            <DataTable columns={columns} table={table} isLoading={false} />
+        <div className="space-y-4 bg-white p-4 min-h-screen">
+            <div className="max-w-6xl mx-auto mb-8 p-6 border rounded-xl bg-white shadow-lg pt-8">
+                <DataTable columns={columns} table={table} isLoading={false} />
+                <Button onClick={handleAddRow} className="mt-4 flex items-center gap-2 text-xs px-2 py-1">
+                    <Icons.plus />
+                    Add Employee
+                </Button>
+                <DataPagination total={10} maxPages={10} />
+            </div>
 
-            <div className="max-w-6xl mx-auto mt-8 mb-16">
-                <div className="flex flex-col gap-4 w-fit">
-                    <Button onClick={handleAddRow} className="flex items-center gap-2">
-                        <Icons.plus />
-                        Add Employee
-                    </Button>
-                    <Button>Save</Button>
-                </div>
+            <div className="max-w-6xl mx-auto mt-8 mb-16 flex justify-end text-sm">
+                <Button className="text-sm">Save</Button>
             </div>
         </div>
     );

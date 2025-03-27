@@ -141,7 +141,7 @@ export default function Teams() {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                    <SearchBar placeholder="Search teams" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
+                    <SearchBar placeholder="Search Mappings" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
