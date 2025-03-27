@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ColumnDef, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import DataPagination from '../common/pagination';
 
 interface TableRowData {
     id: string;
@@ -18,22 +19,18 @@ const Assignment = () => {
     const [tableData, setTableData] = useState<TableRowData[]>([{ id: '1', employeeId: '', role: '' }]);
     const [focusRow, setFocusRow] = useState<string | null>(null);
 
-    // ✅ Handle Input Change
     const handleValueChange = (rowId: string, value: string) => {
         setTableData((prevData) => prevData.map((row) => (row.id === rowId ? { ...row, employeeId: value } : row)));
     };
 
-    // ✅ Handle Select Change
     const handleAttributeChange = (rowId: string, selectedRole: string) => {
         setTableData((prevData) => prevData.map((row) => (row.id === rowId ? { ...row, role: selectedRole } : row)));
     };
 
-    // ✅ Add New Row
     const handleAddParameter = () => {
         setTableData((prevData) => [...prevData, { id: `${prevData.length + 1}`, employeeId: '', role: '' }]);
     };
 
-    // ✅ Table Columns
     const columns: ColumnDef<TableRowData>[] = [
         {
             accessorKey: 'employeeId',
@@ -69,7 +66,6 @@ const Assignment = () => {
                     onValueChange={(value) => handleAttributeChange(row.original.id, value)}
                 >
                     <SelectTrigger className="w-40 h-8 text-sm">
-                        {/* Smaller Select Component */}
                         <SelectValue placeholder="Select Role" />
                     </SelectTrigger>
                     <SelectContent>
@@ -91,21 +87,18 @@ const Assignment = () => {
     });
 
     return (
-        <div className="h-screen w-full overflow-y-auto">
-            <div className="p-8 bg-gray-50 min-h-full">
-                {/* DataTable */}
+        <div className="space-y-4 bg-white p-4 min-h-screen">
+            <div className="max-w-6xl mx-auto mb-8 p-6 border rounded-xl bg-white shadow-lg pt-8">
                 <DataTable table={table} columns={columns} isLoading={false} />
+                <Button onClick={handleAddParameter} className="mt-4 flex items-center gap-2 text-xs px-2 py-1">
+                    <Icons.plus />
+                    Add Attribute
+                </Button>
+                <DataPagination total={10} maxPages={10} />
+            </div>
 
-                {/* Buttons Section */}
-                <div className="max-w-6xl mx-auto mt-8 mb-16">
-                    <div className="flex flex-col gap-4 w-fit">
-                        <Button onClick={handleAddParameter} className="flex items-center gap-2">
-                            <Icons.plus />
-                            Add Attribute
-                        </Button>
-                        <Button>Save</Button>
-                    </div>
-                </div>
+            <div className="max-w-6xl mx-auto mt-8 mb-16 flex justify-end text-sm">
+                <Button className="text-sm">Save</Button>
             </div>
         </div>
     );

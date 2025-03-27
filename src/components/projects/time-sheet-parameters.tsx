@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import DataPagination from '../common/pagination';
 
 interface TableRowData {
     id: string;
@@ -92,7 +93,7 @@ const TimeSheetParameters = () => {
             cell: ({ row }) => (
                 <div className="flex items-center space-x-2">
                     <Input
-                        className="w-full text-sm"
+                        className="w-[180px] text-sm"
                         value={row.original.value}
                         onChange={(e) => handleValueChange(row.index, e.target.value)}
                         placeholder="Enter value"
@@ -131,19 +132,19 @@ const TimeSheetParameters = () => {
     });
 
     return (
-        <div className="p-6 space-y-4 bg-gray-50 min-h-screen">
-            {/* DataTable with Clean UI */}
-            <DataTable columns={columns} table={table} isLoading={false} />
+        <div className="space-y-4 bg-white p-4 min-h-screen">
+            <div className="max-w-6xl mx-auto mb-8 p-6 border rounded-xl bg-white shadow-lg pt-8">
+                <DataTable table={table} columns={columns} isLoading={false} />
+                <Button onClick={handleAddParameter} className="mt-4 flex items-center gap-2 text-xs px-2 py-1">
+                    <Icons.plus />
+                    Add Parameter
+                </Button>
 
-            {/* Buttons Section */}
-            <div className="max-w-6xl mx-auto mt-8 mb-16">
-                <div className="flex flex-col gap-4 w-fit">
-                    <Button onClick={handleAddParameter} className="flex items-center gap-2">
-                        <Icons.plus />
-                        Add Parameter
-                    </Button>
-                    <Button>Save</Button>
-                </div>
+                <DataPagination total={10} maxPages={10} />
+            </div>
+
+            <div className="max-w-6xl mx-auto mt-8 mb-16 flex justify-end text-sm">
+                <Button className="text-sm">Save</Button>
             </div>
         </div>
     );

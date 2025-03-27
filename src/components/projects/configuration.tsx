@@ -45,11 +45,11 @@ export default function ConfigurationForm() {
     };
 
     return (
-        <div className="flex items-start justify-center min-h-screen bg-gray-50 overflow-auto pt-6">
-            <Card className="w-full max-w-[900px] pt-8 pl-4 shadow-md rounded-xl bg-white">
+        <div className="flex items-start justify-center min-h-screen bg-white overflow-hidden  p-4">
+            <Card className="w-full max-w-full pt-6 shadow-md rounded-xl bg-white">
                 <CardContent>
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="overflow-auto">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="overflow-hidden">
                             {/* First Row */}
                             <div className="grid grid-cols-2 gap-6 mb-4">
                                 <FormField
@@ -130,7 +130,6 @@ export default function ConfigurationForm() {
                                         </FormItem>
                                     )}
                                 />
-
                                 <FormField
                                     control={form.control}
                                     name="startDate"
@@ -139,38 +138,6 @@ export default function ConfigurationForm() {
                                             <FormControl>
                                                 <div className="flex items-center">
                                                     <Label className="text-gray-700 w-1/2">Start Date</Label>
-                                                    <Input {...field} placeholder="dd / mm / yyyy" className="w-[200px]" />
-                                                </div>
-                                            </FormControl>
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-
-                            {/* Fourth Row */}
-                            <div className="grid grid-cols-2 gap-6 mb-4">
-                                <FormField
-                                    control={form.control}
-                                    name="allowWeekends"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl>
-                                                <div className="flex items-center">
-                                                    <Label className="text-gray-700 w-1/2">Allow Weekends</Label>
-                                                    <Switch checked={field.value} onCheckedChange={field.onChange} />
-                                                </div>
-                                            </FormControl>
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="endDate"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl>
-                                                <div className="flex items-center">
-                                                    <Label className="text-gray-700 w-1/2">End Date</Label>
                                                     <Input {...field} placeholder="dd / mm / yyyy" className="w-[200px]" />
                                                 </div>
                                             </FormControl>
@@ -209,9 +176,11 @@ export default function ConfigurationForm() {
                             />
 
                             {/* Submit Button */}
-                            <Button type="submit" className="mt-4">
-                                Save
-                            </Button>
+                            <div className="flex justify-end">
+                                <Button type="submit" className="mt-4 text-sm">
+                                    Save
+                                </Button>
+                            </div>
                         </form>
                     </Form>
                 </CardContent>
