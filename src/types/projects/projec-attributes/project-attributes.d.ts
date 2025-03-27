@@ -3,5 +3,4 @@ export interface ProjectAttributesTypes {
     name: string;
     attributeType: string[];
     createdAt: string;
-    subValues: [];
 }

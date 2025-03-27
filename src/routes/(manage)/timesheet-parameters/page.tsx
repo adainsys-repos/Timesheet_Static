@@ -13,9 +13,9 @@ import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '
 export default function TimesheetParameters() {
     // Dummy data for demonstration
     const dummyData = [
-        { id: '1', name: 'John Doe', customerId: 'C001', createdAt: '2022-01-01' },
-        { id: '2', name: 'Jane Doe', customerId: 'C002', createdAt: '2022-02-01' },
-        { id: '3', name: 'Alice Smith', customerId: 'C003', createdAt: '2022-03-01' },
+        { id: '1', name: 'John Doe', createdAt: '2022-01-01' },
+        { id: '2', name: 'Jane Doe', createdAt: '2022-02-01' },
+        { id: '3', name: 'Alice Smith', createdAt: '2022-03-01' },
     ];
 
     // const {
@@ -42,7 +42,7 @@ export default function TimesheetParameters() {
             cell: ({ row }) => <span>{row.original.name}</span>,
         },
         {
-            accessorKey: 'customerId',
+            accessorKey: 'createdAt',
             header: () => (
                 <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
                     <Icons.id className="size-4" /> Creation Date

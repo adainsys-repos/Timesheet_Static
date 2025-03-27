@@ -3,13 +3,11 @@ import RouteHeader from '@/components/common/route-header';
 import SearchBar from '@/components/common/search';
 import ToolTip from '@/components/common/tool-tip';
 import DataTable from '@/components/table/DataTable';
-import AddEmployeeToTeam from '@/components/teams/add-employee-to-teams';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Icons } from '@/icons/icons';
-import { TimesheetParametersTypes } from '@/types/timesheet-parameters/timesheet-parameters';
+import { TeamsTypes } from '@/types/teams/teams';
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,7 +33,7 @@ export default function Teams() {
 
     // const { data, totalElements, maxPages } = groups ?? {};
 
-    const columns: ColumnDef<TimesheetParametersTypes>[] = [
+    const columns: ColumnDef<TeamsTypes>[] = [
         {
             accessorKey: 'name',
             header: () => (

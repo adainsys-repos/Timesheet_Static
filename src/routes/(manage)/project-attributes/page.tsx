@@ -1,6 +1,4 @@
-import DataPagination from '@/components/common/pagination';
 import RouteHeader from '@/components/common/route-header';
-import SearchBar from '@/components/common/search';
 import ToolTip from '@/components/common/tool-tip';
 import DataTable from '@/components/table/DataTable';
 import { Button } from '@/components/ui/button';
