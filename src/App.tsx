@@ -19,6 +19,7 @@ import ProjectTabs from './components/projects/project-tabs';
 import LoginPage from './routes/sign-in/page';
 import TeamAllotment from './routes/(allotment)/team-allotment/page';
 import EmployeeAllotment from './routes/(allotment)/employee-allotment/page';
+import AddEmployeeToTeam from './components/teams/add-employee-to-teams';
 
 function App() {
     return (
@@ -49,6 +50,7 @@ function App() {
                         <Route path="/projects" element={<Projects />} />
                         {/* {Project Tabs} */}
                         <Route path="/projects/:id" element={<ProjectTabs />} />
+                        <Route path="/add-employee-to-team" element={<AddEmployeeToTeam />} />
                     </Route>
                 </Route>
             </Routes>

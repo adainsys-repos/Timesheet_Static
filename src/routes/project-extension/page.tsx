@@ -25,12 +25,11 @@ export default function ProjectExtension() {
 
                     <div className="space-y-2">
                         <label className="block text-sm font-semibold text-gray-700">Start Date</label>
-                        <Input
-                            type="date" placeholder="02-Feb-2025"/>
+                        <Input type="date" placeholder="02-Feb-2025" />
                     </div>
                     <div className="space-y-2">
                         <label className="block text-sm font-semibold text-gray-700">Current End Date</label>
-                        <Input type="date" placeholder="Current End Date"/>
+                        <Input type="date" placeholder="Current End Date" />
                     </div>
 
                     <div className="space-y-2">
@@ -39,7 +38,7 @@ export default function ProjectExtension() {
                     </div>
                     <div className="space-y-2">
                         <label className="block text-sm font-semibold text-gray-700">Quoted Weeks</label>
-                        <Input type="number"/>
+                        <Input type="number" />
                     </div>
                     <Button className="w-full mt-4">REQUEST</Button>
                 </div>

@@ -11,6 +11,7 @@ import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger
 import { Icons } from '@/icons/icons';
 import { TimesheetParametersTypes } from '@/types/timesheet-parameters/timesheet-parameters';
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
+import { useNavigate } from 'react-router-dom';
 
 export default function Teams() {
     // Dummy data for demonstration
@@ -19,6 +20,7 @@ export default function Teams() {
         { id: '2', name: 'Jane Doe', sbu: 'SBU2', customerId: 'C002', createdAt: '2022-02-01' },
         { id: '3', name: 'Alice Smith', sbu: 'SBU3', customerId: 'C003', createdAt: '2022-03-01' },
     ];
+    const navigate = useNavigate();
 
     // const {
     //     data: groups,
@@ -68,24 +70,23 @@ export default function Teams() {
                     <Icons.action className="size-4" /> Action
                 </div>
             ),
+
             cell: ({ row }) => (
                 <>
                     <ToolTip content="Add Employee">
-                        <Sheet>
-                            <SheetTrigger asChild>
-                                <Button variant="icon">
-                                    <Icons.plus className="size-4 text-primaryColor" />
-                                </Button>
-                            </SheetTrigger>
-                            <SheetContent className="!max-w-[60vw] overflow-y-auto mb-10">
-                                <SheetHeader>
-                                    <SheetTitle>Team Name</SheetTitle>
-                                </SheetHeader>
-                                <div className="w-full flex flex-col gap-2 py-4">
-                                    <AddEmployeeToTeam />
-                                </div>
-                            </SheetContent>
-                        </Sheet>
+                        <Button
+                            variant="icon"
+                            onClick={() => {
+                                navigate('/add-employee-to-team');
+                            }}
+                        >
+                            <Icons.edit className="size-4 text-primaryColor" />
+                        </Button>
+                    </ToolTip>
+                    <ToolTip content="Delete Employee">
+                        <Button variant="icon">
+                            <Icons.trash className="size-4 text-red-500" />
+                        </Button>
                     </ToolTip>
                 </>
             ),

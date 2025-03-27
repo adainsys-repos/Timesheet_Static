@@ -6,6 +6,8 @@ import { Icons } from '@/icons/icons';
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
 import { ProjectTypes } from '@/types/projects/project/project';
 import { useNavigate } from 'react-router-dom';
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogDescription, DialogFooter, DialogTitle } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 
 export default function Projects() {
     const navigate = useNavigate();
@@ -82,17 +84,33 @@ export default function Projects() {
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
     });
+
     return (
         <div className="flex flex-col gap-4">
             <RouteHeader text="Projects" />
 
             <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-2 justify-end">
-                    <Button>
-                        <Icons.plus className="text-white" /> Add Projects
-                    </Button>
-                    {/* <SearchBar placeholder="Search " paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" /> */}
-                </div>
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <div className="flex items-center gap-2 justify-end">
+                            <Button>
+                                <Icons.plus className="text-white" /> Import Projects
+                            </Button>
+                            {/* <SearchBar placeholder="Search " paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" /> */}
+                        </div>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Add Project</DialogTitle>
+                        </DialogHeader>
+                        <DialogDescription>
+                            <Input placeholder="Enter Project Code" />
+                        </DialogDescription>
+                        <DialogFooter>
+                            <Button type="submit">Add</Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
                     {/* <DataPagination maxPages={10} total={10} /> */}

@@ -2,11 +2,15 @@ import DataPagination from '@/components/common/pagination';
 import RouteHeader from '@/components/common/route-header';
 import SearchBar from '@/components/common/search';
 import DataTable from '@/components/table/DataTable';
+import { Button } from '@/components/ui/button';
 import { Icons } from '@/icons/icons';
 import { Customers } from '@/types/customers/customers';
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogDescription, DialogFooter, DialogTitle } from '@/components/ui/dialog';
 // import { customerKeys } from '@/utils/query-keys/customer.keys';
 // import { useQuery } from '@tanstack/react-query';
+
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
+import AddCustomer from '@/components/forms/customer/add-customer';
 
 export default function Customer() {
     // Dummy data for demonstration
@@ -65,11 +69,33 @@ export default function Customer() {
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
     });
+
     return (
         <div className="flex flex-col gap-4">
             <RouteHeader text="Customer" />
             <div className="flex flex-col gap-4">
-                <SearchBar placeholder="Search customer" paramName="search" debounceTime={500} onSearch={() => {}} />
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <div className="flex items-center gap-2 justify-end">
+                            <Button>
+                                <Icons.plus className="text-white" /> Add Customers
+                            </Button>
+                            <SearchBar placeholder="Search customer" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
+                        </div>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Add Customer</DialogTitle>
+                        </DialogHeader>
+                        <DialogDescription>
+                            <AddCustomer />
+                        </DialogDescription>
+                        <DialogFooter>
+                            <Button type="submit">Add</Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
+
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
                     <DataPagination maxPages={10} total={10} />

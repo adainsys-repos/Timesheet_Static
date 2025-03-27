@@ -12,6 +12,7 @@ import ToolTip from '@/components/common/tool-tip';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import AssignProjects from '@/components/project-allocation/projects/assign-projects/page';
 import AssignedProjects from '@/components/project-allocation/projects/assigned-projects/page';
+import ProjectAllocation from '@/components/project-allocation/project-allocation';
 
 export default function ProjectGroups() {
     const dummyData: ProjectGroupsTypes[] = [
@@ -59,24 +60,30 @@ export default function ProjectGroups() {
             ),
             cell: ({ row }) => (
                 <>
-                    <ToolTip content="Add Groups">
-                        <Sheet>
+                    <Sheet>
+                        <ToolTip content="Edit Groups">
                             <SheetTrigger asChild>
                                 <Button variant="icon">
-                                    <Icons.plus className="size-4 text-primaryColor" />
+                                    <Icons.edit className="size-4 text-primaryColor" />
                                 </Button>
                             </SheetTrigger>
-                            <SheetContent className="!max-w-[60vw] overflow-y-auto mb-10">
-                                <SheetHeader>
-                                    <SheetTitle>Project Groups Name</SheetTitle>
-                                </SheetHeader>
-                                <div className="w-full flex flex-col gap-2 py-4">
-                                    <AssignProjects />
-                                    <AssignedProjects />
-                                </div>
-                            </SheetContent>
-                        </Sheet>
-                    </ToolTip>
+                        </ToolTip>
+
+                        <ToolTip content="Delete">
+                            <Button variant="icon">
+                                <Icons.trash className="size-4 text-red-500" />
+                            </Button>
+                        </ToolTip>
+
+                        <SheetContent className="!max-w-[75vw] overflow-y-auto mb-10">
+                            <SheetHeader>
+                                <SheetTitle>Project Groups Name</SheetTitle>
+                            </SheetHeader>
+                            <div className="w-full flex flex-col gap-2 py-4">
+                                <ProjectAllocation type="teams" />
+                            </div>
+                        </SheetContent>
+                    </Sheet>
                 </>
             ),
         },
