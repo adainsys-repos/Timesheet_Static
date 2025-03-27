@@ -1,24 +1,23 @@
 import DataPagination from '@/components/common/pagination';
 import RouteHeader from '@/components/common/route-header';
 import SearchBar from '@/components/common/search';
-import ToolTip from '@/components/common/tool-tip';
 import DataTable from '@/components/table/DataTable';
+import ToolTip from '@/components/common/tool-tip';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Icons } from '@/icons/icons';
 import { TeamsTypes } from '@/types/teams/teams';
 import { ColumnDef, getCoreRowModel, getFilteredRowModel, useReactTable } from '@tanstack/react-table';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Teams() {
-    // Dummy data for demonstration
-    const dummyData = [
+    // const navigate = useNavigate();
+    const dummyData: TeamsTypes[] = [
         { id: '1', name: 'John Doe', sbu: 'SBU1', customerId: 'C001', createdAt: '2022-01-01' },
         { id: '2', name: 'Jane Doe', sbu: 'SBU2', customerId: 'C002', createdAt: '2022-02-01' },
         { id: '3', name: 'Alice Smith', sbu: 'SBU3', customerId: 'C003', createdAt: '2022-03-01' },
     ];
-    const navigate = useNavigate();
 
     // const {
     //     data: groups,
@@ -53,33 +52,29 @@ export default function Teams() {
             cell: ({ row }) => <span>{row.original.sbu}</span>,
         },
         {
-            accessorKey: 'customerId',
+            accessorKey: 'createdAt',
             header: () => (
                 <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
-                    <Icons.id className="size-4" /> Creation Date
+                    <Icons.calendarPlus className="size-4" /> Creation Date
                 </div>
             ),
             cell: ({ row }) => <span>{row.original.createdAt}</span>,
         },
         {
-            accessorKey: 'createdAt',
+            id: 'actions',
             header: () => (
                 <div className="text-primaryColor font-semibold flex items-center gap-2 min-w-24">
                     <Icons.action className="size-4" /> Action
                 </div>
             ),
-
             cell: ({ row }) => (
                 <>
                     <ToolTip content="Add Employee">
-                        <Button
-                            variant="icon"
-                            onClick={() => {
-                                navigate('/add-employee-to-team');
-                            }}
-                        >
-                            <Icons.edit className="size-4 text-primaryColor" />
-                        </Button>
+                        <Link to="/add-employee-to-team">
+                            <Button variant="icon">
+                                <Icons.edit className="size-4 text-primaryColor" />
+                            </Button>
+                        </Link>
                     </ToolTip>
                     <ToolTip content="Delete Employee">
                         <Button variant="icon">
@@ -123,10 +118,11 @@ export default function Teams() {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                    <SearchBar placeholder="Search customer" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
+                    <SearchBar placeholder="Search teams" paramName="search" debounceTime={500} onSearch={() => {}} className="ml-0" />
                 </div>
                 <div className="flex flex-col gap-4">
                     <DataTable table={table} columns={columns} isLoading={false} />
+
                     <DataPagination maxPages={10} total={10} />
                 </div>
             </div>
