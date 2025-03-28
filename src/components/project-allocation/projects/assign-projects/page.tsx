@@ -5,6 +5,7 @@ import { Project } from '@/types/projects/projects';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/icons/icons';
 import Pagination from '@/components/common/pagination';
+import SearchBar from '@/components/common/search';
 
 export default function AssignProjects({ type }: { type: 'teams' | 'employees' }) {
     const assignedProjects: Project[] = [
@@ -108,6 +109,7 @@ export default function AssignProjects({ type }: { type: 'teams' | 'employees' }
 
     return (
         <div>
+            <SearchBar placeholder="Search" paramName="search" className="mr-0 mb-3" onSearch={() => {}} />
             <DataTable table={table} columns={columns} isLoading={false} />
             <Pagination maxPages={10} total={100} />
         </div>

@@ -14,7 +14,7 @@ import {
     SidebarProvider,
 } from '@/components/ui/sidebar';
 import { Separator } from '../ui/separator';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronDown } from 'lucide-react';
 import { Icons } from '@/icons/icons';
@@ -114,6 +114,9 @@ const navItems: NavItem[] = [
 ];
 
 export function AppSidebar({ children }: { children: React.ReactNode }) {
+    const location = useLocation();
+    const pathname = location.pathname;
+
     return (
         <SidebarProvider>
             <Sidebar className="space-y-4 bg-background border-r h-screen">
@@ -128,7 +131,9 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                                 {navItems.map((item, index) => (
                                     <Collapsible
                                         key={item.path || `item-${index}`}
-                                        className="group/collapsible rounded-lg hover:bg-secondary/40 transition-all duration-200"
+                                        className={`group/collapsible rounded-lg transition-all duration-200 ${
+                                            pathname === item.path ? 'bg-primaryColor/10' : 'hover:bg-primaryColor/10'
+                                        }`}
                                     >
                                         <SidebarMenuItem className={`py-1`}>
                                             {item.subItems && item.subItems.length > 0 ? (
@@ -170,7 +175,9 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                                                         {item.subItems.map((subItem, subIndex) => (
                                                             <SidebarMenuSubItem
                                                                 key={subItem.path || `subitem-${index}-${subIndex}`}
-                                                                className="rounded-md hover:bg-secondary/60 transition-all duration-200"
+                                                                className={`rounded-md transition-all duration-200 ${
+                                                                    pathname === subItem.path ? 'bg-primaryColor/10' : 'hover:bg-primaryColor/10'
+                                                                }`}
                                                             >
                                                                 <SidebarMenuSubButton asChild className="w-full px-1.5 py-2 rounded-md">
                                                                     <Link

@@ -5,6 +5,7 @@ import { ProjectGroup } from '@/types/projects/projects';
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/icons/icons';
 import Pagination from '@/components/common/pagination';
+import SearchBar from '@/components/common/search';
 
 export default function AssignProjectGroup({ type }: { type: 'teams' | 'employees' }) {
     const assignedProjects: ProjectGroup[] = [
@@ -70,6 +71,7 @@ export default function AssignProjectGroup({ type }: { type: 'teams' | 'employee
 
     return (
         <div>
+            <SearchBar placeholder="Search" paramName="search" className="mr-0 mb-3" onSearch={() => {}} />
             <DataTable table={table} columns={columns} isLoading={false} />
             <Pagination maxPages={10} total={100} />
         </div>
