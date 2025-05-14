@@ -29,6 +29,9 @@ import {
     CheckSquare,
     Vote,
     Eye,
+    User,
+    Lock,
+    ArrowRight,
 } from 'lucide-react';
 
 export const Icons = {
@@ -61,4 +64,7 @@ export const Icons = {
     checkSquare: (props: LucideProps) => <CheckSquare className="size-5 stroke-[1.5]" {...props} />,
     vote: (props: LucideProps) => <Vote className="size-5 stroke-[1.5]" {...props} />,
     eye: (props: LucideProps) => <Eye className="size-5 stroke-[1.5]" {...props} />,
+    user: (props: LucideProps) => <User className="size-5 stroke-[1.5]" {...props} />,
+    lock: (props: LucideProps) => <Lock className="size-5 stroke-[1.5]" {...props} />,
+    arrowRight: (props: LucideProps) => <ArrowRight className="size-5 stroke-[1.5]" {...props} />,
 };
