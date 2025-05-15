@@ -38,79 +38,79 @@ const navItems: NavItem[] = [
         icon: 'clock',
         path: '/timesheet',
     },
-    {
-        label: 'Project Extension',
-        icon: 'fileText',
-        path: '/project-extension',
-    },
+    // {
+    //     label: 'Project Extension',
+    //     icon: 'fileText',
+    //     path: '/project-extension',
+    // },
     {
         label: 'Calendar',
         icon: 'calendar',
         path: '/calendar',
     },
-    {
-        label: 'PM mapping',
-        icon: 'userPlus',
-        path: '/pm-mapping',
-    },
-    {
-        label: 'Allotment',
-        icon: 'vote',
-        path: '/allotment',
-        subItems: [
-            {
-                label: 'Team Allotment',
-                icon: 'userPlus',
-                path: '/team-allotment',
-            },
-            {
-                label: 'Employee Allotment',
-                icon: 'userPlus',
-                path: '/employee-allotment',
-            },
-        ],
-    },
-    {
-        label: 'Manage',
-        icon: 'settings',
-        subItems: [
-            {
-                label: 'Project Attributes',
-                icon: 'briefcase',
-                path: '/project-attributes',
-            },
-            {
-                label: 'Timesheet Parameters',
-                icon: 'clock',
-                path: '/timesheet-parameters',
-            },
-            {
-                label: 'Customer',
-                icon: 'building',
-                path: '/customer',
-            },
-            {
-                label: 'Project Groups',
-                icon: 'folderTree',
-                path: '/project-groups',
-            },
-            {
-                label: 'Teams',
-                icon: 'users',
-                path: '/teams',
-            },
-            {
-                label: 'Team Project mapping',
-                icon: 'userPlus',
-                path: '/team-project-mapping',
-            },
-            {
-                label: 'Projects',
-                icon: 'briefcase',
-                path: '/projects',
-            },
-        ],
-    },
+    // {
+    //     label: 'PM mapping',
+    //     icon: 'userPlus',
+    //     path: '/pm-mapping',
+    // },
+    // {
+    //     label: 'Allotment',
+    //     icon: 'vote',
+    //     path: '/allotment',
+    //     subItems: [
+    //         {
+    //             label: 'Team Allotment',
+    //             icon: 'userPlus',
+    //             path: '/team-allotment',
+    //         },
+    //         {
+    //             label: 'Employee Allotment',
+    //             icon: 'userPlus',
+    //             path: '/employee-allotment',
+    //         },
+    //     ],
+    // },
+    // {
+    //     label: 'Manage',
+    //     icon: 'settings',
+    //     subItems: [
+    //         {
+    //             label: 'Project Attributes',
+    //             icon: 'briefcase',
+    //             path: '/project-attributes',
+    //         },
+    //         {
+    //             label: 'Timesheet Parameters',
+    //             icon: 'clock',
+    //             path: '/timesheet-parameters',
+    //         },
+    //         {
+    //             label: 'Customer',
+    //             icon: 'building',
+    //             path: '/customer',
+    //         },
+    //         {
+    //             label: 'Project Groups',
+    //             icon: 'folderTree',
+    //             path: '/project-groups',
+    //         },
+    //         {
+    //             label: 'Teams',
+    //             icon: 'users',
+    //             path: '/teams',
+    //         },
+    //         {
+    //             label: 'Team Project mapping',
+    //             icon: 'userPlus',
+    //             path: '/team-project-mapping',
+    //         },
+    //         {
+    //             label: 'Projects',
+    //             icon: 'briefcase',
+    //             path: '/projects',
+    //         },
+    //     ],
+    // },
 ];
 
 export function AppSidebar({ children }: { children: React.ReactNode }) {

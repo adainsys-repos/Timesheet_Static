@@ -344,7 +344,7 @@ export default function Timesheet() {
                                     </Select>
                                 </div>
 
-                                <div className="p-2 border-r bg-muted/30 flex flex-col items-center justify-center">
+                                {/* <div className="p-2 border-r bg-muted/30 flex flex-col items-center justify-center">
                                     <div className="text-center text-sm font-medium">Total: {formatHoursDisplay(row.hours.total)}</div>
                                     <div className="flex gap-1 items-center">
                                         {row.hours.total > 40 && (
@@ -353,6 +353,26 @@ export default function Timesheet() {
                                             </ToolTip>
                                         )}
                                     </div>
+                                </div> */}
+
+                                <div className="p-2 border-r bg-muted/30 flex flex-col items-center justify-center">
+                                    <div className="flex flex-col w-14 rounded overflow-hidden shadow -mt-8">
+                                        <div className="bg-cyan-100 text-center text-base font-semibold py-2">
+                                            {/* {formatHoursDisplay(row.hours.total)} e.g., 9 */}9
+                                        </div>
+                                        <div className="bg-blue-100 text-center text-base font-semibold py-2">
+                                            {/* {formatHoursDisplay(40)} e.g., 40 */}
+                                            40
+                                        </div>
+                                    </div>
+
+                                    {row.hours.total > 40 && (
+                                        <div className="mt-0.5">
+                                            <ToolTip content="Exceeds weekly limit of 40 hours">
+                                                <AlertCircle className="h-4 w-4 text-amber-500" />
+                                            </ToolTip>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {weekDays.map((day, dayIndex) => {
